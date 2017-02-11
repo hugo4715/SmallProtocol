@@ -34,7 +34,8 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- NMS jars -->
+		
+		<!-- any NMS jars -->
 		<dependency>
 			<groupId>v1_8_R3</groupId>
 			<artifactId>v1_8_R3</artifactId>
@@ -42,6 +43,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/v1_8_R3.jar</systemPath>
 		</dependency>
+
 
 	</dependencies>
 
@@ -55,27 +57,6 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<artifactSet>
-								<includes>
-									<include>org.javassist</include>
-								</includes>
-							</artifactSet>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
