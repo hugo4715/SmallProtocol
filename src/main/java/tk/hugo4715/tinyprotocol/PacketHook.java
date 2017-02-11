@@ -20,6 +20,7 @@ public class PacketHook {
 	public PacketHook(JavaPlugin plugin) {
 		this.plugin = plugin;
 		this.eventBus = new EventBus(getClass().getSimpleName());
+		this.logger = new PacketHookLogger(this);
 		init();
 	}
 

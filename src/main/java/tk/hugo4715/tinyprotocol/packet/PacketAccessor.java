@@ -27,4 +27,8 @@ public class PacketAccessor {
 	public String getPacketClassSimpleName() {
 		return handle.getClass().getSimpleName();
 	}
+	
+	public Object getHandle() {
+		return handle;
+	}
 }
