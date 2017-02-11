@@ -103,6 +103,7 @@ public abstract class TinyProtocol {
 		try {
 			registerChannelHandler();
 			registerPlayers(plugin);
+			plugin.getLogger().info("[TinyProtocol] Injection successful.");
 		} catch (IllegalArgumentException ex) {
 			// Damn you, late bind
 			plugin.getLogger().info("[TinyProtocol] Delaying server channel injection due to late bind.");

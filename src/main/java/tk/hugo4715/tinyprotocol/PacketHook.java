@@ -28,7 +28,6 @@ public class PacketHook {
 	private void init() {
 		getLogger().info("PacketHook is initializing...");
 		protocol = new TinyProtocolAccessor(this);
-
 		if(protocol != null){
 			getLogger().info("Successfully hooked into minecraft protocol!");
 		}else{
@@ -56,6 +55,10 @@ public class PacketHook {
 	 */
 	public boolean isErrored(){
 		return protocol == null;
+	}
+	
+	public void close(){
+		if(protocol != null)protocol.close();
 	}
 
 

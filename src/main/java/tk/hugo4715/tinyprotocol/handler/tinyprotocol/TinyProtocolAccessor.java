@@ -11,10 +11,10 @@ import tk.hugo4715.tinyprotocol.packet.PacketAccessor;
 
 public class TinyProtocolAccessor extends ProtocolAccessor {
 	
-	
+	private TinyProtocol protocol ;
 	public TinyProtocolAccessor(PacketHook lib) {
 		super(lib);
-		TinyProtocol protocol = new TinyProtocol(lib.getPlugin()) {
+		protocol = new TinyProtocol(lib.getPlugin()) {
 			@Override
 			public Object onPacketInAsync(Player sender, Channel channel, Object packet) {
 				PacketAccessor a = new PacketAccessor(packet);
@@ -22,7 +22,7 @@ public class TinyProtocolAccessor extends ProtocolAccessor {
 				lib.getEventBus().post(event);
 				
 				if(event.isCancelled())return null;
-				else return event.getPacket();
+				else return event.getPacket().getHandle();
 			}
 			
 			@Override
@@ -32,9 +32,21 @@ public class TinyProtocolAccessor extends ProtocolAccessor {
 				lib.getEventBus().post(event);
 				
 				if(event.isCancelled())return null;
-				else return event.getPacket();
+				else return event.getPacket().getHandle();
 			}
 		};
+	}
+	
+	@Override
+	public void close() {
+		protocol.close();
+	}
+
+	@Override
+	public void sendPacket(Object packet, Player... players) {
+		for(Player p : players){
+			protocol.sendPacket(p, packet);
+		}
 	}
 
 }
