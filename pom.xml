@@ -34,14 +34,21 @@
 			<scope>provided</scope>
 		</dependency>
 
-		
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>5.0.0.Alpha2</version>
+		</dependency>
+
+
 		<!-- any NMS jars -->
 		<dependency>
-			<groupId>v1_8_R3</groupId>
-			<artifactId>v1_8_R3</artifactId>
+			<groupId>authlib-1.5.22</groupId>
+			<artifactId>authlib-1.5.22</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/v1_8_R3.jar</systemPath>
+			<systemPath>${project.basedir}/lib/authlib-1.5.22.jar</systemPath>
 		</dependency>
 
 

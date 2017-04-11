@@ -51,7 +51,7 @@ local.properties
 
 /target
 target/
-lib/
-*.jar
+
+
 .class
 
