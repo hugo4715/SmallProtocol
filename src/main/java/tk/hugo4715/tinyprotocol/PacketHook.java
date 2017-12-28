@@ -1,5 +1,6 @@
 package tk.hugo4715.tinyprotocol;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.eventbus.EventBus;
@@ -55,6 +56,16 @@ public class PacketHook {
 	 */
 	public boolean isErrored(){
 		return protocol == null;
+	}
+	
+	public void sendPacket(Player p,Object... packets) {
+		for (int i = 0; i < packets.length; i++) {
+			protocol.sendPacket(packets[i], p);
+		}
+	}
+	
+	public void sendPacket(Object packet, Player...players) {
+		protocol.sendPacket(packet, players);
 	}
 	
 	public void close(){
